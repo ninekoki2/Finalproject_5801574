@@ -86,7 +86,7 @@ function loginUser(callback, name, password) {
 
 function InsertUser(user,callback) {
 
-    var sql = 'insert into user(username, password, score1, score2, score, savestate) values ?';
+    var sql = 'insert into user(username, password, score1, score2, score3, savestate) values ?';
 
     connection.query(sql,[user],
         function (err) {
