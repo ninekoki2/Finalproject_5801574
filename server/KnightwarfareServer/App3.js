@@ -73,7 +73,7 @@ var server = app.listen(8081, function () {
 function loginUser(callback, name, password) {
 
     var json = '';
-    var sql = util.format('SELECT username,stage,score FROM user WHERE username = "%s" AND password = "%s"', name, password);
+    var sql = util.format('SELECT username,score1,score2,score3,savestate FROM user WHERE username = "%s" AND password = "%s"', name, password);
     connection.query(sql,
         function (err, rows, fields) {
             if (err) throw err;
