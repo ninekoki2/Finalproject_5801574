@@ -42,7 +42,9 @@ app.get('/user/update', function (req, res) {
     
     var name = req.query.name;
     var stage = parseInt(req.query.stage);
-    var score = parseInt(req.query.score);
+    var score1 = parseInt(req.query.score1);
+    var score2 = parseInt(req.query.score2);
+    var score3 = parseInt(req.query.score3);
 
     UpdateScore(name,stage,score1,score2,score3,function(err,result){
         res.end(result);
