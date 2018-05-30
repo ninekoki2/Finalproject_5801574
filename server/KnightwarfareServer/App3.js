@@ -44,7 +44,7 @@ app.get('/user/update', function (req, res) {
     var stage = parseInt(req.query.stage);
     var score = parseInt(req.query.score);
 
-    UpdateScore(name,stage,score,function(err,result){
+    UpdateScore(name,stage,score1,score2,score3,function(err,result){
         res.end(result);
     }); 
 });
@@ -103,8 +103,8 @@ function InsertUser(user,callback) {
         });
 }
 
-function UpdateScore(name, stage, score, callback){
-    var sql = util.format('UPDATE user SET stage = %s, score = IF(score < %s, %s, score) WHERE username = "%s" AND stage <= %s', stage, score, score, name, stage);
+function UpdateScore(name, stage, score1,score2,score3, callback){
+    var sql = util.format('UPDATE user SET savestate = %s, score1 = IF(score1 < %s, %s, score1), score2 = IF(score2 < %s, %s, score2), score1 = IF(score3 < %s, %s, score3), WHERE username = "%s" AND savestate <= %s', score1, score2, score3, name, stage);
 
     connection.query(sql,
         function (err) {
