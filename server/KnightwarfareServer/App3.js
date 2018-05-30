@@ -106,7 +106,7 @@ function InsertUser(user,callback) {
 }
 
 function UpdateScore(name, stage, score1,score2,score3, callback){
-    var sql = util.format('UPDATE user SET savestate = %s, score1 = IF(score1 < %s, %s, score1), score2 = IF(score2 < %s, %s, score2), score3 = IF(score3 < %s, %s, score3) WHERE username = "%s" AND savestate <= %s', score1, score1, score2, score2, score3, score3, name, stage);
+    var sql = util.format('UPDATE user SET savestate = %s, score1 = IF(score1 < %s, %s, score1), score2 = IF(score2 < %s, %s, score2), score3 = IF(score3 < %s, %s, score3) WHERE username = "%s" AND savestate <= %s', stage, score1, score1, score2, score2, score3, score3, name, stage);
 
     connection.query(sql,
         function (err) {
