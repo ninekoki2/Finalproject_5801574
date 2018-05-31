@@ -125,7 +125,7 @@ function UpdateScore(name, stage, score1,score2,score3, callback){
 
 function queryTopTen1(callback){
     var json = '';
-    connection.query("SELECT username, score FROM user ORDER BY score DESC LIMIT 10;",
+    connection.query("SELECT username, score1 FROM user ORDER BY score1 DESC LIMIT 10;",
         function (err, rows, fields) {
             if (err) throw err;
 
