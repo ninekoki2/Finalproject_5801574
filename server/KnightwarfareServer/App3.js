@@ -57,6 +57,12 @@ app.get('/top10user1', function (req, res) {
     });
 });
 
+app.get('/top10user2', function (req, res) {
+    queryTopTen2(function(err,result){
+        res.end(result);
+    });
+});
+
 app.get('/login/:name/:password', function (req, res) {
 
     var name = req.params.name;
@@ -126,6 +132,18 @@ function UpdateScore(name, stage, score1,score2,score3, callback){
 function queryTopTen1(callback){
     var json = '';
     connection.query("SELECT username, score1 FROM user ORDER BY score1 DESC LIMIT 10;",
+        function (err, rows, fields) {
+            if (err) throw err;
+
+            json = JSON.stringify(rows);
+
+            callback(null, json);
+        });
+}
+
+function queryTopTen2(callback){
+    var json = '';
+    connection.query("SELECT username, score2 FROM user ORDER BY score2 DESC LIMIT 10;",
         function (err, rows, fields) {
             if (err) throw err;
 
