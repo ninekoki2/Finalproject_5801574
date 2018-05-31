@@ -51,8 +51,8 @@ app.get('/user/update', function (req, res) {
     }); 
 });
 
-app.get('/top10users', function (req, res) {
-    queryTopTen(function(err,result){
+app.get('/top10users1', function (req, res) {
+    queryTopTen1(function(err,result){
         res.end(result);
     });
 });
@@ -123,9 +123,9 @@ function UpdateScore(name, stage, score1,score2,score3, callback){
         });
 }
 
-function queryTopTen(callback){
+function queryTopTen1(callback){
     var json = '';
-    connection.query("SELECT username, stage, score FROM user ORDER BY stage DESC, score DESC LIMIT 10;",
+    connection.query("SELECT username, score1 FROM user, score DESC LIMIT 10;",
         function (err, rows, fields) {
             if (err) throw err;
 
